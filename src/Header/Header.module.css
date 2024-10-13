@@ -1,0 +1,40 @@
+body{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: none;
+}
+a{
+  text-decoration: none;
+  color: #fff;
+}
+.header{
+  background-color: #D55844;
+  height: 70px;
+}
+.header__item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+.logo{
+  display: flex;
+}
+.input{
+  margin-left: 20px;
+  width: 250px;
+}
+.logo__img{
+  width: 40px;
+  height: 40px;
+}
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.icons{
+  display: flex;
+  justify-content: space-between;
+}
