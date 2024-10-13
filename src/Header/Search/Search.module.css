@@ -1,0 +1,10 @@
+
+.input {
+  margin-left: 20px;
+  width: 250px;
+  height: 36px;
+}
+
+input::placeholder {
+  padding-left: 10px;
+}
