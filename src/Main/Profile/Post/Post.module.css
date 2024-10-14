@@ -1,0 +1,54 @@
+
+.item{
+  margin-left: 70px;
+  width: 710px;
+  margin-top: 30px;
+  background-color: #fff;
+  padding: 20px;
+  border-bottom: 2px solid #EEEEEE;
+}
+.name{
+  display: flex;
+  border-bottom: 2px solid #EEEEEE;
+}
+
+.name__item{
+  margin-left: 15px;
+}
+.photo{
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 15px;
+}
+.nam, .activity{
+  margin: 0;
+}
+
+.nam{
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.activity{
+  color: #C5C5C5;
+}
+
+.info{
+  border-bottom: 2px solid #EEEEEE;
+}
+.title{
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.text{
+  color: #C5C5C5;
+}
+
+.statistic__post{
+  display: flex;
+  color: #C5C5C5;
+  justify-content: space-between;
+}
