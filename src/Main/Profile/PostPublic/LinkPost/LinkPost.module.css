@@ -1,0 +1,24 @@
+
+.links {
+
+  margin-right: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: #000;
+  display: flex;
+}
+
+.postphoto {
+  display: block;
+  color: #C5C5C5;
+  padding: 15px 40px;
+  background-color: #E4E4E4;
+  text-align: center;
+}
+
+.postjob {
+  margin-left: 15px;
+  color: #fff;
+  padding: 15px 40px;
+  background-color: #D55748;
+}
