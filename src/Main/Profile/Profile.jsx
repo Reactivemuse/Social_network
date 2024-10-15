@@ -10,6 +10,10 @@ const Profile = () =>{
     <div className={s.profile}>
       <PostPublic/>
       <Post/>
+      <Post />
+      <Post />
+      <Post />
+      <Post />
     </div>
   )
 }
