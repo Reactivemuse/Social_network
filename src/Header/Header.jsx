@@ -12,11 +12,11 @@ const Header = () => {
           <Logo/>
           <Search/>
           <div className={s.icons}>
-            <Icon text = "Profile"/>
-            <Icon text="Messages" />
-            <Icon text="News" />
-            <Icon text="Music" />
-            <Icon text = "Settings"/>
+            <Icon link= "/Profile" text = "Profile"/>
+            <Icon link="/Messages" text="Messages" />
+            <Icon link="/News" text="News" />
+            <Icon link="/Music" text="Music" />
+            <Icon link="/Settings" text = "Settings"/>
           </div>
         </div>
       </div>
