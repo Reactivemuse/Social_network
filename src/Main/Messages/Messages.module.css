@@ -1,0 +1,17 @@
+
+.items{
+  display: flex;
+  justify-content: space-between;
+  margin-left: 50px;
+  background-color: #fff;
+  padding: 20px;
+  width: 400px;
+}
+
+.messages{
+  margin-left: 100px;
+}
+
+.active{
+  color: #D55844;
+}
