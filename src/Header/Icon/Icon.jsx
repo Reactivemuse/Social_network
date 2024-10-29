@@ -3,8 +3,9 @@ import { NavLink } from "react-router-dom"
 
 const Icon = (props) => {
   return (
+    
     <div className={s.item}>
-      <a href={props.link} className={s.item__link}>{props.text}</a>
+      <NavLink to={props.link} className={s.item__link}>{props.text}</NavLink>
     </div>
   )
 }
