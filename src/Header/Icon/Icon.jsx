@@ -5,7 +5,7 @@ const Icon = (props) => {
   return (
     
     <div className={s.item}>
-      <NavLink to={props.link} className={s.item__link}>{props.text}</NavLink>
+      <NavLink to={props.link} className={navData => navData.isActive ? s.active : s.item__link}>{props.text}</NavLink>
     </div>
   )
 }
