@@ -15,3 +15,7 @@
 .active{
   color: #D55844;
 }
+
+.people__item a{
+  color: #000;
+}
