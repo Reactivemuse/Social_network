@@ -1,0 +1,14 @@
+
+.info {
+  border-bottom: 2px solid #EEEEEE;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.text {
+  color: #C5C5C5;
+}

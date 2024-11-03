@@ -1,0 +1,33 @@
+
+
+.name {
+  display: flex;
+  border-bottom: 2px solid #EEEEEE;
+}
+
+.name__item {
+  margin-left: 15px;
+}
+
+.photo {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 15px;
+}
+
+.nam,
+.activity {
+  margin: 0;
+}
+
+.nam {
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.activity {
+  color: #C5C5C5;
+}

@@ -1,0 +1,18 @@
+
+
+.statistic__post {
+  display: flex;
+  color: #C5C5C5;
+  justify-content: space-between;
+}
+
+.likes::before {
+  content: "";
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: block;
+  width: 20px;
+  align-items: center;
+  height: 20px;
+  background-image: url("/./public/like.png")
+}
