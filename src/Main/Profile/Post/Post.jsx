@@ -2,6 +2,7 @@ import s from "./Post.module.css"
 import PostName from "./PostName/PostName"
 import PostInfo from "./PostInfo/PostInfo"
 import PostStatistic from "./PostStatistic/PostStatistic"
+
 const Post = () => {
 
   return(
