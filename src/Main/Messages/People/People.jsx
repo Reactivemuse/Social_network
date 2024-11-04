@@ -8,13 +8,13 @@ const People = () => {
     { id: 4, name: "KASHIRIN" },
     { id: 5, name: "ANTIPOV" },
   ]
+
+  let dialogsElements = dialogsData
+    .map(dialog => <Person name = {dialog.name} id = {dialog.id}/>)
+
   return (
     <div className={s.people}>
-      <Person name = "IGOR" id = "1"/>
-      <Person name="DIMA" id="2" />
-      <Person name="ARTEM" id="3" />
-      <Person name="KASHIRIN" id="4" />
-      <Person name="ANTIPOV" id="5"/>
+      {dialogsElements}
     </div>
   )
 }

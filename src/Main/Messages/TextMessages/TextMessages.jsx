@@ -8,13 +8,11 @@ const TextMessages  = () => {
     { text: "Нельзя писать state" },
     { text: "Исправь блок схему" },
   ]
+  let textItem = messagesData
+    .map( message => <TextItem text= {message.text} />)
   return (
     <div className={s.messages}>
-      <TextItem text= "Винни чемпион"/>
-      <TextItem text = "Привет"/>
-      <TextItem text = "Винни чемпион"/>
-      <TextItem text = "Нельзя писать state"/>
-      <TextItem text= "Исправь блок схему"/>
+      {textItem}
     </div>
   )
 }
