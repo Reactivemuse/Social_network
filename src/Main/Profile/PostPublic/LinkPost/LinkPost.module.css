@@ -8,6 +8,11 @@
   display: flex;
 }
 
+.links textarea{
+  margin-right: 60px;
+  width: 200px;
+}
+
 .postphoto {
   display: block;
   color: #C5C5C5;
