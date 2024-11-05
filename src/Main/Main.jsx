@@ -6,8 +6,7 @@ import News from "./News/News"
 import Music from "./Music/Music"
 import Settings from "./Settings/Settings"
 import {Routes, Route} from "react-router-dom"
-const Main = () => {
-  
+const Main = (props) => {
   return (
       <main className={s.main}>
         <div className={s.container}>
@@ -15,7 +14,7 @@ const Main = () => {
             <Card/>
             <Routes>
               <Route path="/Profile" element={<Profile />} />
-              <Route path="/Messages" element={<Messages />} />
+            <Route path="/Messages" element={<Messages  messagesData = {props.messagesData} dialogsData = {props.dialogsData}/>} />
               <Route path="/News" element={<News />} />
               <Route path="/Music" element={<Music />} />
               <Route path="/Settings" element={<Settings />} />

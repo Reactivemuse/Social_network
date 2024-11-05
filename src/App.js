@@ -3,12 +3,13 @@ import React from "react";
 import Header from "./Header/Header";
 import Main from "./Main/Main";
 
-function App() {
+function App(props) {
+  
   return (
     <BrowserRouter>
       <React.Fragment>
         <Header />
-        <Main />
+        <Main dialogsData = {props.dialogsData} messagesData = {props.messagesData}/>
       </React.Fragment>
     </BrowserRouter>
   );
