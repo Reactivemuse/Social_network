@@ -9,7 +9,7 @@ function App(props) {
     <BrowserRouter>
       <React.Fragment>
         <Header />
-        <Main dialogsData={props.dialogsData} messagesData={props.messagesData} postData={props.postData} />
+        <Main statemes={props.state.messagesPage} stateprof={props.state.profilePage} />
       </React.Fragment>
     </BrowserRouter>
   );
