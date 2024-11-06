@@ -7,6 +7,7 @@ const LinkPost = (props) =>{
   let addpost = () => {
     let text = newElementpost.current.value;
     props.addpost(text)
+    newElementpost.current.value = ''
   }
   return (
     <div className={s.links}>
