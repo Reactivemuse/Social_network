@@ -1,3 +1,4 @@
+import { renderElement } from "../render";
 
 
 let state = {
@@ -42,8 +43,16 @@ let state = {
     ]
   }
 
-  
+}
 
+export let addpost = (post) => {
+  let newElement = {
+    title: "Data",
+    text: post,
+    likes: 0
+  }
+  state.profilePage.postData.push(newElement);
+  renderElement(state)
 }
 
 export default state

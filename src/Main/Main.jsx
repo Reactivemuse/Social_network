@@ -13,7 +13,8 @@ const Main = (props) => {
           <div className={s.content}>
             <Card/>
             <Routes>
-            <Route path="/Profile" element={<Profile postData={props.stateprof.postData} />} />
+            <Route path="/Profile" element={<Profile postData={props.stateprof.postData} 
+            addpost = {props.addpost}/>} />
             <Route path="/Messages" element={<Messages messagesData={props.statemes.messagesData} dialogsData={props.statemes.dialogsData}/>} />
               <Route path="/News" element={<News />} />
               <Route path="/Music" element={<Music />} />

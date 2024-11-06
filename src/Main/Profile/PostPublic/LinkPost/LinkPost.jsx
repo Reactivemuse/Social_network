@@ -1,12 +1,12 @@
 import s from "./LinkPost.module.css"
 import React from "react";
 
-const LinkPost = () =>{
+const LinkPost = (props) =>{
   let newElementpost = React.createRef();
 
   let addpost = () => {
     let text = newElementpost.current.value;
-    alert(text);
+    props.addpost(text)
   }
   return (
     <div className={s.links}>

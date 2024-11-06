@@ -9,7 +9,7 @@ const Profile = (props) =>{
     .map(post => <Post title={post.title} likes={post.likes} text={post.text} />)
   return (
     <div className={s.profile}>
-      <PostPublic/>
+      <PostPublic addpost = {props.addpost}/>
       {postItem}
     </div>
   )
