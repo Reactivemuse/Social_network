@@ -1,11 +1,24 @@
+.message_container{
+  margin-left: 50px;
+  background-color: #fff;
+}
+
 
 .items{
   display: flex;
   justify-content: space-between;
-  margin-left: 50px;
-  background-color: #fff;
   padding: 20px;
   width: 400px;
 }
 
 
+.message_container textarea{
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.message_container button{
+  display: block;
+  margin: 0 auto;
+}
