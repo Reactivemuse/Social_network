@@ -5,13 +5,17 @@ const LinkPost = (props) =>{
   let newElementpost = React.createRef();
 
   let addpost = () => {
-    let text = newElementpost.current.value;
-    props.addpost(text)
-    newElementpost.current.value = ''
+    props.addpost()
+  }
+
+  let changeOn = () => {
+    let newText = newElementpost.current.value;
+    props.createtext(newText);
+
   }
   return (
     <div className={s.links}>
-      <textarea ref={newElementpost}></textarea>
+      <textarea ref={newElementpost} onChange={changeOn} value = {props.postText}/>
       <a href="" className={s.postphoto}>Post a photo</a>
       <button onClick = { addpost } className={s.postjob}>Post a Job</button>
     </div>

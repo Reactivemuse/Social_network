@@ -15,7 +15,7 @@ const Messages = (props) => {
         <People dialogsData = {props.dialogsData}/>
         <TextMessages messagesData = {props.messagesData}/>
       </div>
-      <textarea ref = {message_item}></textarea>
+      <textarea ref = {message_item}/>
       <button onClick={ message_function}>Добавить</button>
     </div>
   )

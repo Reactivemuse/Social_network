@@ -40,19 +40,28 @@ let state = {
       {
         title: "History", text: "Напиши просто текст. Это простое задание, которое не требует особых усилий или специальных знаний. Просто открой свой блокнот или любой другой текстовый редактор и начни писать.", likes: "1"
       }
-    ]
+    ],
+    postText: "Hello"
   }
 
 }
 
-export let addpost = (post) => {
+export let addpost = () => {
   let newElement = {
     title: "Data",
-    text: post,
+    text: state.profilePage.postText,
     likes: 0
   }
   state.profilePage.postData.push(newElement);
+  state.profilePage.postText = ''
   renderElement(state)
+}
+
+export let createtext = (text) => {
+
+  state.profilePage.postText = text;
+  renderElement(state)
+  
 }
 
 export default state
