@@ -8,22 +8,29 @@
   display: flex;
 }
 
-.links textarea{
-  margin-right: 60px;
-  width: 200px;
+.links_text{
+  margin-left: 15px;
 }
 
 .postphoto {
   display: block;
   color: #C5C5C5;
-  padding: 15px 40px;
+  padding: 15px 20px;
   background-color: #E4E4E4;
   text-align: center;
+  margin-left: 15px;
 }
 
 .postjob {
   margin-left: 15px;
   color: #fff;
-  padding: 15px 40px;
+  padding: 15px 20px;
   background-color: #D55748;
+}
+
+textarea::placeholder {
+
+  padding-left: 10px;
+  padding-top: 12px;
+  margin: 0 auto;
 }

@@ -43,24 +43,31 @@ let state = {
         title: "History", text: "Напиши просто текст. Это простое задание, которое не требует особых усилий или специальных знаний. Просто открой свой блокнот или любой другой текстовый редактор и начни писать.", likes: "1"
       }
     ],
-    postText: "Hello"
+    postTitle: "",
+    postText: ""
   }
 
 }
 
 export const addpost = () => {
   let newElement = {
-    title: "Data",
+    title: state.profilePage.postTitle,
     text: state.profilePage.postText,
     likes: 0
   }
   state.profilePage.postData.push(newElement);
+  state.profilePage.postTitle = ''
   state.profilePage.postText = ''
   renderElement(state)
 }
 
-export const createtext = (text) => {
+export const createtitle = (text) => {
+  state.profilePage.postTitle = text;
+  renderElement(state)
 
+}
+
+export const createtext = (text) => {
   state.profilePage.postText = text;
   renderElement(state)
   

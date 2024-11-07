@@ -10,7 +10,7 @@ function App(props) {
       <React.Fragment>
         <Header />
         <Main statemes={props.state.messagesPage} stateprof={props.state.profilePage} 
-          addpost={props.addpost} createtext={props.createtext}/>
+          addpost={props.addpost} createtitle = {props.createtitle} createtext={props.createtext}/>
       </React.Fragment>
     </BrowserRouter>
   );
