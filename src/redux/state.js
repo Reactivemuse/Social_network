@@ -1,5 +1,7 @@
-import { renderElement } from "../render";
 
+let renderElement = () => {
+  console.log("GOOD")
+}
 
 let state = {
   messagesPage: {
@@ -46,7 +48,7 @@ let state = {
 
 }
 
-export let addpost = () => {
+export const addpost = () => {
   let newElement = {
     title: "Data",
     text: state.profilePage.postText,
@@ -57,11 +59,15 @@ export let addpost = () => {
   renderElement(state)
 }
 
-export let createtext = (text) => {
+export const createtext = (text) => {
 
   state.profilePage.postText = text;
   renderElement(state)
   
+}
+
+export const subscribe = (observer) => {
+  renderElement = observer
 }
 
 export default state
