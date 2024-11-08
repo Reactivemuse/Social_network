@@ -14,7 +14,7 @@ const Main = (props) => {
             <Card/>
             <Routes>
             <Route path="/Profile" element={<Profile postData={props.stateprof} 
-              addpost={props.addpost} createtitle = {props.createtitle} createtext={props.createtext}/> }/>
+              dispatch={props.dispatch}/> }/>
             <Route path="/Messages" element={<Messages messagesData={props.statemes.messagesData} dialogsData={props.statemes.dialogsData}/>} />
               <Route path="/News" element={<News />} />
               <Route path="/Music" element={<Music />} />

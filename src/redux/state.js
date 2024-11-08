@@ -72,6 +72,28 @@ let store = {
 
   subscribe(observer){
     this._renderElement = observer
+  },
+
+  dispatch(action){
+    if (action.type === "ADD-POST"){
+      let newElement = {
+        title: this._state.profilePage.postTitle,
+        text: this._state.profilePage.postText,
+        likes: 0
+      }
+      this._state.profilePage.postData.push(newElement);
+      this._state.profilePage.postTitle = ''
+      this._state.profilePage.postText = ''
+      this._renderElement(this._state)
+    }
+    else if (action.type === "CREATE-TITLE"){
+      this._state.profilePage.postTitle = action.title;
+      this._renderElement(this._state)
+    }
+    else if (action.type === "CREATE-TEXT"){
+      this._state.profilePage.postText = action.text;
+      this._renderElement(this._state)
+    }
   }
 
 }

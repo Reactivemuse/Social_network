@@ -6,18 +6,20 @@ const LinkPost = (props) =>{
   let newElementpostText = React.createRef();
 
   let addpost = () => {
-    props.addpost()
+    let action = { type: "ADD-POST" }
+    props.dispatch(action)
   }
 
   let changeOnTitle = () => {
     let newTitle = newElementpostTitle.current.value;
-    props.createtitle(newTitle);
+    let action = { type: "CREATE-TITLE",  title: newTitle}
+    props.dispatch(action)
 
   }
   let changeOnText = () => {
     let newText = newElementpostText.current.value;
-    props.createtext(newText);
-
+    let action = { type: "CREATE-TEXT", text: newText }
+    props.dispatch(action)
   }
   
   return (
