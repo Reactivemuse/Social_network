@@ -20,7 +20,7 @@ const Messages = (props) => {
         <People dialogsData = {props.dialogsData}/>
         <TextMessages messagesData = {props.messagesData}/>
       </div>
-      <textarea onChange={changeMessage} ref={newMessageElement}/>
+      <textarea onChange={changeMessage} ref={newMessageElement} value={props.messageText} />
       <button onClick={addMessage}>Добавить</button>
     </div>
   )

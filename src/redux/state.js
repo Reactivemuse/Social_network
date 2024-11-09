@@ -76,15 +76,7 @@ let store = {
     this._state.profilePage.postText = text;
     this._renderElement(this._state)
   },
-  addMessage(){
-    let newMessage = {
-      text: this._state.messagesPage.postMessage
-    }
-    this._state.messagesPage.messagesData.push(newMessage);
-    this._state.messagesPage.postMessage = ''
-    this._renderElement(this._state)
-  },
-
+  
   subscribe(observer){
     this._renderElement = observer
   },
@@ -129,6 +121,5 @@ export const changeOnTitleActionCreator = (title) => ({ type: CREATE_TITLE, titl
 export const changeOnTextActionCreator = (text) => ({ type: CREATE_TEXT, text: text} )
 export const changeOnMessageActionCreator = (text) => ({ type: CREATE_MESSAGE_TEXT, text: text })
 export const addMessageActionCreator = () => ({ type: ADD_MESSAGE })
-
 
 export default store
