@@ -1,25 +1,22 @@
 import s from "./LinkPost.module.css"
 import React from "react";
-
+import { addPostActionCreator, changeOnTitleActionCreator, changeOnTextActionCreator } from "../../../../redux/state"; 
 const LinkPost = (props) =>{
   let newElementpostTitle = React.createRef();
   let newElementpostText = React.createRef();
 
   let addpost = () => {
-    let action = { type: "ADD-POST" }
-    props.dispatch(action)
+    props.dispatch(addPostActionCreator())
   }
 
   let changeOnTitle = () => {
     let newTitle = newElementpostTitle.current.value;
-    let action = { type: "CREATE-TITLE",  title: newTitle}
-    props.dispatch(action)
+    props.dispatch(changeOnTitleActionCreator(newTitle))
 
   }
   let changeOnText = () => {
     let newText = newElementpostText.current.value;
-    let action = { type: "CREATE-TEXT", text: newText }
-    props.dispatch(action)
+    props.dispatch(changeOnTextActionCreator(newText))
   }
   
   return (

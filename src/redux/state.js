@@ -1,3 +1,6 @@
+const ADD_POST = "ADD-POST"
+const CREATE_TITLE = "CREATE-TITLE"
+const CREATE_TEXT = "CREATE-TEXT"
 
 let store = {
   _renderElement() {
@@ -75,7 +78,7 @@ let store = {
   },
 
   dispatch(action){
-    if (action.type === "ADD-POST"){
+    if (action.type === ADD_POST){
       let newElement = {
         title: this._state.profilePage.postTitle,
         text: this._state.profilePage.postText,
@@ -86,16 +89,20 @@ let store = {
       this._state.profilePage.postText = ''
       this._renderElement(this._state)
     }
-    else if (action.type === "CREATE-TITLE"){
+    else if (action.type === CREATE_TITLE){
       this._state.profilePage.postTitle = action.title;
       this._renderElement(this._state)
     }
-    else if (action.type === "CREATE-TEXT"){
+    else if (action.type === CREATE_TEXT){
       this._state.profilePage.postText = action.text;
       this._renderElement(this._state)
     }
   }
-
 }
+
+export const addPostActionCreator = () => ({ type: ADD_POST })
+export const changeOnTitleActionCreator = (title) => ({ type: CREATE_TITLE, title: title })
+export const changeOnTextActionCreator = (text) => ({ type: CREATE_TEXT, text: text} )
+
 
 export default store
