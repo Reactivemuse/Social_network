@@ -2,12 +2,17 @@ import s from "./Messages.module.css"
 import People from "./People/People"
 import TextMessages from "./TextMessages/TextMessages"
 import React from "react"
+import { addMessageActionCreator, changeOnMessageActionCreator } from "../../redux/state"
 const Messages = (props) => {
-  let message_item = React.createRef()
+  let newMessageElement = React.createRef()
 
-  let message_function = () => {
-    let text = message_item.current.value
-    alert(text)
+  let addMessage = () => {
+    //let text = newMessageElement.current.value
+    props.dispatch(addMessageActionCreator())
+  }
+  let changeMessage = () => {
+    let newMessage = newMessageElement.current.value;
+    props.dispatch(changeOnMessageActionCreator(newMessage))
   }
   return (
     <div className={s.message_container}>
@@ -15,8 +20,8 @@ const Messages = (props) => {
         <People dialogsData = {props.dialogsData}/>
         <TextMessages messagesData = {props.messagesData}/>
       </div>
-      <textarea ref = {message_item}/>
-      <button onClick={ message_function}>Добавить</button>
+      <textarea onChange={changeMessage} ref={newMessageElement}/>
+      <button onClick={addMessage}>Добавить</button>
     </div>
   )
 }

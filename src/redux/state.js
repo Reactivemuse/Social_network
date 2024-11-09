@@ -1,6 +1,8 @@
 const ADD_POST = "ADD-POST"
 const CREATE_TITLE = "CREATE-TITLE"
 const CREATE_TEXT = "CREATE-TEXT"
+const ADD_MESSAGE = "ADD-MESSAGE"
+const CREATE_MESSAGE_TEXT = "CREATE-MESSAGE-TEXT"
 
 let store = {
   _renderElement() {
@@ -21,7 +23,9 @@ let store = {
         { id: 3, name: "ARTEM" },
         { id: 4, name: "KASHIRIN" },
         { id: 5, name: "ANTIPOV" },
-      ]
+      ],
+
+      postMessage: ''
     },
 
     profilePage: {
@@ -72,6 +76,14 @@ let store = {
     this._state.profilePage.postText = text;
     this._renderElement(this._state)
   },
+  addMessage(){
+    let newMessage = {
+      text: this._state.messagesPage.postMessage
+    }
+    this._state.messagesPage.messagesData.push(newMessage);
+    this._state.messagesPage.postMessage = ''
+    this._renderElement(this._state)
+  },
 
   subscribe(observer){
     this._renderElement = observer
@@ -97,12 +109,26 @@ let store = {
       this._state.profilePage.postText = action.text;
       this._renderElement(this._state)
     }
+    else if (action.type === ADD_MESSAGE){
+      let newMessage = {
+        text: this._state.messagesPage.postMessage
+      }
+      this._state.messagesPage.messagesData.push(newMessage);
+      this._state.messagesPage.postMessage = ''
+      this._renderElement(this._state)
+    }
+    else if (action.type === CREATE_MESSAGE_TEXT){
+      this._state.messagesPage.postMessage = action.text;
+      this._renderElement(this._state)
+    }
   }
 }
 
 export const addPostActionCreator = () => ({ type: ADD_POST })
 export const changeOnTitleActionCreator = (title) => ({ type: CREATE_TITLE, title: title })
 export const changeOnTextActionCreator = (text) => ({ type: CREATE_TEXT, text: text} )
+export const changeOnMessageActionCreator = (text) => ({ type: CREATE_MESSAGE_TEXT, text: text })
+export const addMessageActionCreator = () => ({ type: ADD_MESSAGE })
 
 
 export default store
