@@ -2,7 +2,32 @@ const ADD_POST = "ADD-POST"
 const CREATE_TITLE = "CREATE-TITLE"
 const CREATE_TEXT = "CREATE-TEXT"
 
-const profileReducer = (state, action) => {
+let initial = {
+  postData: [
+    {
+      title: "History", text: "Напиши просто текст. Это простое задание, которое не требует особых усилий или специальных знаний. Просто открой свой блокнот или любой другой текстовый редактор и начни писать.", likes: "1"
+    },
+    {
+      title: "Задание", text: "Таким образом, ты сможешь развить свою письменную речь и станешь более уверенным в своих способностях.", likes: "5"
+    },
+    {
+      title: "Удачи!", text: "Главное - просто писать и выражать свои мысли.", likes: "9"
+    },
+    {
+      title: "Cтараемся!", text: "Пожалуйста, уделите немного времени, чтобы оценить результат.", likes: "100"
+    },
+    {
+      title: "Defense", text: "It seems like you may have intended to write 'defense' or 'defeats,' but since the topic is ambiguous, I'll provide a brief overview of both concepts for a better understanding.", likes: "1000"
+    },
+    {
+      title: "History", text: "Напиши просто текст. Это простое задание, которое не требует особых усилий или специальных знаний. Просто открой свой блокнот или любой другой текстовый редактор и начни писать.", likes: "1"
+    }
+  ],
+  postTitle: "",
+  postText: ""
+};
+
+const profileReducer = (state = initial, action) => {
 
   switch (action.type){
     case ADD_POST:

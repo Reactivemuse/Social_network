@@ -2,7 +2,26 @@
 const ADD_MESSAGE = "ADD-MESSAGE"
 const CREATE_MESSAGE_TEXT = "CREATE-MESSAGE-TEXT"
 
-const dialogsReducer = (state, action) => {
+let initial = {
+  messagesData: [
+    { text: "Винни чемпион" },
+    { text: "Привет" },
+    { text: "Винни чемпион" },
+    { text: "Нельзя писать state" },
+    { text: "Исправь блок схему" },
+  ],
+  dialogsData: [
+    { id: 1, name: "IGOR" },
+    { id: 2, name: "DIMA" },
+    { id: 3, name: "ARTEM" },
+    { id: 4, name: "KASHIRIN" },
+    { id: 5, name: "ANTIPOV" },
+  ],
+
+  postMessage: ''
+};
+
+const dialogsReducer = (state = initial, action) => {
 
   switch(action.type){
     case ADD_MESSAGE:

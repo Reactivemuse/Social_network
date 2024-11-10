@@ -1,4 +1,3 @@
-
 import dialogsReducer from "./dialogs-reducer"
 import profileReducer from "./profile-reducer"
 
@@ -52,6 +51,8 @@ let store = {
   _renderElement() {
     console.log("GOOD")
   },
+
+  /////////// эти функции автоматом уже находятся в библиотеке redux. Нужна только логика для dispatch
   getState(){
     return this._state
   },
@@ -59,13 +60,13 @@ let store = {
   subscribe(observer){
     this._renderElement = observer
   },
-
+  
   dispatch(action){
     this._state.profilePage = profileReducer(this._state.profilePage, action)
     this._state.messagesPage = dialogsReducer(this._state.messagesPage, action)
-    this._renderElement(this._state)
-    
+    this._renderElement(this._state) 
   }
+  ////////
 }
 
 export default store
