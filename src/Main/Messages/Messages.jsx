@@ -2,7 +2,7 @@ import s from "./Messages.module.css"
 import People from "./People/People"
 import TextMessages from "./TextMessages/TextMessages"
 import React from "react"
-import { addMessageActionCreator, changeOnMessageActionCreator } from "../../redux/state"
+import { addMessageActionCreator, changeOnMessageActionCreator } from "../../redux/dialogs-reducer"
 const Messages = (props) => {
   let newMessageElement = React.createRef()
 

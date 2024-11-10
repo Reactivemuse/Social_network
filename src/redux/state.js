@@ -1,13 +1,8 @@
-const ADD_POST = "ADD-POST"
-const CREATE_TITLE = "CREATE-TITLE"
-const CREATE_TEXT = "CREATE-TEXT"
-const ADD_MESSAGE = "ADD-MESSAGE"
-const CREATE_MESSAGE_TEXT = "CREATE-MESSAGE-TEXT"
+
+import dialogsReducer from "./dialogs-reducer"
+import profileReducer from "./profile-reducer"
 
 let store = {
-  _renderElement() {
-    console.log("GOOD")
-  },
   _state: {
     messagesPage: {
       messagesData: [
@@ -53,28 +48,12 @@ let store = {
       postText: ""
     }
   },
+
+  _renderElement() {
+    console.log("GOOD")
+  },
   getState(){
     return this._state
-  },
-  addpost(){
-    let newElement = {
-      title: this._state.profilePage.postTitle,
-      text: this._state.profilePage.postText,
-      likes: 0
-    }
-    this._state.profilePage.postData.push(newElement);
-    this._state.profilePage.postTitle = ''
-    this._state.profilePage.postText = ''
-    this._renderElement(this._state)
-  },
-  createtitle(text){
-    this._state.profilePage.postTitle = text;
-    this._renderElement(this._state)
-  },
-
-  createtext(text){
-    this._state.profilePage.postText = text;
-    this._renderElement(this._state)
   },
   
   subscribe(observer){
@@ -82,44 +61,11 @@ let store = {
   },
 
   dispatch(action){
-    if (action.type === ADD_POST){
-      let newElement = {
-        title: this._state.profilePage.postTitle,
-        text: this._state.profilePage.postText,
-        likes: 0
-      }
-      this._state.profilePage.postData.push(newElement);
-      this._state.profilePage.postTitle = ''
-      this._state.profilePage.postText = ''
-      this._renderElement(this._state)
-    }
-    else if (action.type === CREATE_TITLE){
-      this._state.profilePage.postTitle = action.title;
-      this._renderElement(this._state)
-    }
-    else if (action.type === CREATE_TEXT){
-      this._state.profilePage.postText = action.text;
-      this._renderElement(this._state)
-    }
-    else if (action.type === ADD_MESSAGE){
-      let newMessage = {
-        text: this._state.messagesPage.postMessage
-      }
-      this._state.messagesPage.messagesData.push(newMessage);
-      this._state.messagesPage.postMessage = ''
-      this._renderElement(this._state)
-    }
-    else if (action.type === CREATE_MESSAGE_TEXT){
-      this._state.messagesPage.postMessage = action.text;
-      this._renderElement(this._state)
-    }
+    this._state.profilePage = profileReducer(this._state.profilePage, action)
+    this._state.messagesPage = dialogsReducer(this._state.messagesPage, action)
+    this._renderElement(this._state)
+    
   }
 }
-
-export const addPostActionCreator = () => ({ type: ADD_POST })
-export const changeOnTitleActionCreator = (title) => ({ type: CREATE_TITLE, title: title })
-export const changeOnTextActionCreator = (text) => ({ type: CREATE_TEXT, text: text} )
-export const changeOnMessageActionCreator = (text) => ({ type: CREATE_MESSAGE_TEXT, text: text })
-export const addMessageActionCreator = () => ({ type: ADD_MESSAGE })
 
 export default store
