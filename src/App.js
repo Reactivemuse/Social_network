@@ -9,7 +9,7 @@ function App(props) {
     <BrowserRouter>
       <React.Fragment>
         <Header />
-        <Main statemes={props.state.messagesPage} store = {props.store}/>
+        <Main store = {props.store}/>
       </React.Fragment>
     </BrowserRouter>
   );
