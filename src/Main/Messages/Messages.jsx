@@ -2,18 +2,19 @@ import s from "./Messages.module.css"
 import People from "./People/People"
 import TextMessages from "./TextMessages/TextMessages"
 import React from "react"
-import { addMessageActionCreator, changeOnMessageActionCreator } from "../../redux/dialogs-reducer"
+
 const Messages = (props) => {
   let newMessageElement = React.createRef()
 
   let addMessage = () => {
-    //let text = newMessageElement.current.value
-    props.dispatch(addMessageActionCreator())
+    props.addMessage()
   }
+
   let changeMessage = () => {
     let newMessage = newMessageElement.current.value;
-    props.dispatch(changeOnMessageActionCreator(newMessage))
+    props.changeMessage(newMessage)
   }
+
   return (
     <div className={s.message_container}>
       <div className={s.items}>
