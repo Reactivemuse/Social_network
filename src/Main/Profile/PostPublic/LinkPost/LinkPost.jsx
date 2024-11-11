@@ -1,23 +1,23 @@
 import s from "./LinkPost.module.css"
 import React from "react";
-import { addPostActionCreator, changeOnTitleActionCreator, changeOnTextActionCreator } from "../../../../redux/profile-reducer";
- 
+
+
 const LinkPost = (props) =>{
   let newElementpostTitle = React.createRef();
   let newElementpostText = React.createRef();
 
   let addpost = () => {
-    props.dispatch(addPostActionCreator())
+    props.addpost()
   }
 
   let changeOnTitle = () => {
     let newTitle = newElementpostTitle.current.value;
-    props.dispatch(changeOnTitleActionCreator(newTitle))
+    props.changeOnTitle(newTitle)
 
   }
   let changeOnText = () => {
     let newText = newElementpostText.current.value;
-    props.dispatch(changeOnTextActionCreator(newText))
+    props.changeOnText(newText)
   }
   
   return (

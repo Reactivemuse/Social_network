@@ -9,8 +9,7 @@ function App(props) {
     <BrowserRouter>
       <React.Fragment>
         <Header />
-        <Main statemes={props.state.messagesPage} stateprof={props.state.profilePage} 
-          dispatch={props.dispatch}/>
+        <Main statemes={props.state.messagesPage} store = {props.store}/>
       </React.Fragment>
     </BrowserRouter>
   );
