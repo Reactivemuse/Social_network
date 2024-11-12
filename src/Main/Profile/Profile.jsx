@@ -4,8 +4,7 @@ import PostPublic from "./PostPublic/PostPublic"
 import Post from "./Post/Post"
 
 const Profile = (props) =>{
-  let state = props.store.getState()
-  let postItem = state.profilePage.postData
+  let postItem = props.postData
     .map(post => <Post title={post.title} likes={post.likes} text={post.text} />)
   return (
     <div className={s.profile}>

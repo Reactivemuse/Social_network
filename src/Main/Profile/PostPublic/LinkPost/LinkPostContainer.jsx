@@ -1,26 +1,28 @@
-import React from "react";
+
 import LinkPost from "./LinkPost";
 import { addPostActionCreator, changeOnTitleActionCreator, changeOnTextActionCreator } from "../../../../redux/profile-reducer";
+import { connect } from "react-redux";
 
-const LinkPostContainer = (props) => {
-  let state = props.store.getState()
-
-  let addpost = () => {
-    props.store.dispatch(addPostActionCreator())
+const mapStateToProps = (state) => {
+  return {
+    postTitle: state.profilePage.postTitle,
+    postText: state.profilePage.postText
   }
-
-  let changeOnTitle = (newTitle) => {
-    props.store.dispatch(changeOnTitleActionCreator(newTitle))
-
-  }
-  let changeOnText = (newText) => {
-    props.store.dispatch(changeOnTextActionCreator(newText))
-  }
-
-  return (
-    <LinkPost addpost = {addpost} changeOnTitle = {changeOnTitle} changeOnText = {changeOnText}
-      postTitle={state.profilePage.postTitle} postText={state.profilePage.postText}/>
-  )
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addpost: () => {
+      dispatch(addPostActionCreator())
+    },
+    changeOnTitle: (newTitle) => {
+      dispatch(changeOnTitleActionCreator(newTitle))
+    },
+    changeOnText: (newText) => {
+      dispatch(changeOnTextActionCreator(newText))
+    }
+  }
+}
+
+const LinkPostContainer = connect(mapStateToProps, mapDispatchToProps)(LinkPost)
 export default LinkPostContainer
