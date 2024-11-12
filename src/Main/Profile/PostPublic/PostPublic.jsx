@@ -12,6 +12,7 @@ const PostPublic = (props) => {
         </div>
         <LinkPostContainer store = {props.store}/>
       </div>
+      
     </div>
   )
 }
