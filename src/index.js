@@ -6,23 +6,25 @@ import App from './App';
 import { Provider } from 'react-redux';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-let renderElement = (state) => {
-  root.render(
-    <React.StrictMode>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </React.StrictMode>
-  )
-}
 
-renderElement()
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>
+)
+
+
+//renderElement()
 
 //store.subscribe(renderElement)
 /// работает для обычного store тоже
-store.subscribe( () => {
-  renderElement()
-})
+
+
+//store.subscribe( () => {
+//  renderElement()
+//})
 
 
 
