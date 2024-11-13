@@ -28,16 +28,17 @@ const dialogsReducer = (state = initial, action) => {
       let newMessage = {
         text: state.postMessage
       }
-      let stateCopy = { ...state }
-      stateCopy.messagesData = [...state.messagesData]
-      stateCopy.messagesData.push(newMessage);
-      stateCopy.postMessage = ''
-      return stateCopy
+      return { 
+        ...state,
+        messagesData: [...state.messagesData, newMessage], // замена push
+        postMessage: ''
+      }
     } 
     case CREATE_MESSAGE_TEXT: {
-      let stateCopy = { ...state }
-      stateCopy.postMessage = action.text;
-      return stateCopy
+      return { 
+        ...state,
+        postMessage: action.text
+       }
     }
     default:
       return state
