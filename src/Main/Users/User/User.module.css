@@ -1,0 +1,59 @@
+
+
+.user{
+  width: 710px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button{
+  display: block;
+}
+
+.user_state{
+  width: 115px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.photo{
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 15px;
+}
+
+.button{
+  width: 130px;
+  border: none;
+  padding: 10px 20px;
+  color: #fff;
+  text-transform: uppercase;
+  background-color: #D55748;
+
+}
+
+.description{
+  margin-left: 40px;
+  background-color: #fff;
+  border: 1px #C5C5C5 solid;
+  border-radius: 20px;
+  width: 550px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.description_about{
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.description_place{
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

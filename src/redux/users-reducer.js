@@ -1,45 +1,47 @@
 
-const ADD_POST = "ADD-POST"
-const CREATE_TITLE = "CREATE-TITLE"
-const CREATE_TEXT = "CREATE-TEXT"
+const USER_FOLLOW = "USER-FOLLOW"
+const USER_UNFOLLOW = "USER-UNFOLLOW"
+const SET_USERS = "SET-USERS"
 
 let initial = {
-  usersData: [
-    { id: 1, followed: true, name: 'Dmitrye K', description: 'I am looking job right now', place: {country: 'Belarus', city: 'Minsk'}},
-    { id: 2, followed: false, name: 'Dmitrye P', description: 'I am looking job right now', place: { country: 'Belarus', city: 'Minsk' } },
-    { id: 3, followed: true, name: 'Sasha', description: 'I am looking job right now', place: { country: 'Belarus', city: 'Minsk' } }
-  ]
+  usersData: [ ]
 };
 
 const usersReducer = (state = initial, action) => {
 
   switch (action.type) {
-    case ADD_POST: {
-      let newElement = {
-        title: state.postTitle,
-        text: state.postText,
-        likes: 0
-      }
+    case USER_FOLLOW: {
+      
       return {
         ...state,
-        postData: [...state.postData, newElement], // замена push
-        postTitle: '',
-        postText: ''
+        usersData: state.usersData.map( data => {
+          if (data.id === action.id){
+            return {...data, followed: true}
+          }
+          return data;
+        })
       }
 
     }
-    case CREATE_TITLE: {
+    case USER_UNFOLLOW: {
       return {
         ...state,
-        postTitle: action.title
+        usersData: state.usersData.map(data => {
+          if (data.id === action.id) {
+            return { ...data, followed: false }
+          }
+          return data;
+        })
       }
     }
-    case CREATE_TEXT: {
+    case SET_USERS: {
       return {
         ...state,
-        postText: action.text
+        usersData: [...state.usersData, ...action.users]
+        //usersData: [...state.usersData, ...action.users]
       }
     }
+    
     default:
       return state
   }
@@ -48,6 +50,6 @@ const usersReducer = (state = initial, action) => {
 
 export default usersReducer
 
-export const addPostActionCreator = () => ({ type: ADD_POST })
-export const changeOnTitleActionCreator = (title) => ({ type: CREATE_TITLE, title: title })
-export const changeOnTextActionCreator = (text) => ({ type: CREATE_TEXT, text: text })
+export const followActionCreator = (id) => ({ type: USER_FOLLOW, id: id})
+export const unFollowActionCreator = (id) => ({ type: USER_UNFOLLOW, id: id })
+export const setUsersActionCreator = (users) => ({ type: SET_USERS, users })

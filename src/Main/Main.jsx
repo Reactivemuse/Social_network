@@ -6,7 +6,7 @@ import Settings from "./Settings/Settings"
 import {Routes, Route} from "react-router-dom"
 import MessagesContainer from "./Messages/MessagesContainer"
 import ProfileContainer from "./Profile/ProfileContainer"
-import Users from "./Users/Users"
+import UsersContainer from "./Users/UsersContainer"
 const Main = (props) => {
   return (
       <main className={s.main}>
@@ -19,7 +19,7 @@ const Main = (props) => {
               <Route path="/News" element={<News />} />
               <Route path="/Music" element={<Music />} />
               <Route path="/Settings" element={<Settings />} />
-              <Route path="/Users" element={<Users />} />
+              <Route path="/Users" element={<UsersContainer />} />
             </Routes>
           </div>
         </div>
