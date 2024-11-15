@@ -38,7 +38,6 @@ const usersReducer = (state = initial, action) => {
       return {
         ...state,
         usersData: [...state.usersData, ...action.users]
-        //usersData: [...state.usersData, ...action.users]
       }
     }
     

@@ -13,6 +13,7 @@ const Header = () => {
           <Search/>
           <div className={s.icons}>
             <Icon link= "/Profile" text = "Profile"/>
+            <Icon link="/Users" text="Users" />
             <Icon link="/Messages" text="Messages" />
             <Icon link="/News" text="News" />
             <Icon link="/Music" text="Music" />
