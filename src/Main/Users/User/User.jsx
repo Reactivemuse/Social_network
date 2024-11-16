@@ -1,6 +1,7 @@
 import s from "./User.module.css"
 import userimage from "../../../assets/images/user.png"
 const User = (props) => {
+
   let unfollowChange = () => {
     props.addUnfollow(props.id)
   }
@@ -19,7 +20,7 @@ const User = (props) => {
       <div className={s.description}>
         <div className={s.description_about}>
           <p className={s.name}>{props.name}</p>
-          <p className={s.text}>{props.description == null ? "Описание пользователя отсутствует!" : props.description}</p>
+          <p className={s.text}>{props.description == null ? "" : props.description}</p>
         </div>
         <div className={s.description_place}>
           <p className={s.country}>{props.country}</p>

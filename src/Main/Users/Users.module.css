@@ -3,3 +3,14 @@
 .container{
   margin-left: 70px ;
 }
+
+.selectedPage{
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.pages span {
+  cursor: pointer;
+  display: inline;
+  margin-left: 5px;
+}
