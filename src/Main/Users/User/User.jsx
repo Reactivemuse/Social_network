@@ -19,7 +19,7 @@ const User = (props) => {
       <div className={s.description}>
         <div className={s.description_about}>
           <p className={s.name}>{props.name}</p>
-          <p className={s.text}>{props.description == null ? "Описание пользователя отсутсвует!" : props.description}</p>
+          <p className={s.text}>{props.description == null ? "Описание пользователя отсутствует!" : props.description}</p>
         </div>
         <div className={s.description_place}>
           <p className={s.country}>{props.country}</p>
