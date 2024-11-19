@@ -14,7 +14,6 @@ let Users = (props) => {
     pages.push(i)
   }
 
-    
   return(
     <div className={s.container}>
       <div className={s.pages}>
