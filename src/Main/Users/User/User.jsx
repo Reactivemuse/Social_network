@@ -1,5 +1,6 @@
 import s from "./User.module.css"
 import userimage from "../../../assets/images/user.png"
+import { NavLink } from "react-router-dom"
 const User = (props) => {
 
   let unfollowChange = () => {
@@ -12,7 +13,9 @@ const User = (props) => {
   return (
     <div className={s.user}>
       <div className={s.user_state}>
-        <img className={s.photo} src={props.url != null ? props.url : userimage}/>
+        <NavLink to={"/Profile/" + props.id}>
+          <img className={s.photo} src={props.url != null ? props.url : userimage}/>
+        </NavLink>
         {props.followed === true ? 
         <button onClick={unfollowChange} className={s.button}>unfollow</button> : 
         <button onClick={followChange} className={s.button}>follow</button>}

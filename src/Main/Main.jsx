@@ -1,5 +1,5 @@
 import s from "./Main.module.css"
-import Card from "./Card/Card"
+import СardContainer from "./Card/СardContainer"
 import News from "./News/News"
 import Music from "./Music/Music"
 import Settings from "./Settings/Settings"
@@ -12,9 +12,9 @@ const Main = (props) => {
       <main className={s.main}>
         <div className={s.container}>
           <div className={s.content}>
-            <Card/>
+          <СardContainer />
             <Routes>
-              <Route path="/Profile" element={<ProfileContainer store = {props.store}/> }/>
+              <Route path="/Profile/*" element={<ProfileContainer store = {props.store}/> }/>
               <Route path="/Messages" element={<MessagesContainer store = {props.store} />} />
               <Route path="/News" element={<News />} />
               <Route path="/Music" element={<Music />} />

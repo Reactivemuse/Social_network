@@ -8,6 +8,7 @@ let Users = (props) => {
     .map(user => <User url={user.photos.small} id={user.id} followed={user.followed} name={user.name}
       description={user.status}
       addUnfollow={props.addUnfollow} addFollow={props.addFollow} />)
+      
   let pagesCount = Math.ceil(props.totalCount / props.pageSize)
   let pages = []
   for (let i = 1; i <= pagesCount; i++) {
