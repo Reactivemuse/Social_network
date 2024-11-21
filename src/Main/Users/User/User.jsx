@@ -13,7 +13,7 @@ const User = (props) => {
   return (
     <div className={s.user}>
       <div className={s.user_state}>
-        <NavLink to={"/Profile/" + props.id}>
+        <NavLink to={`/Profile/${props.id}`}>
           <img className={s.photo} src={props.url != null ? props.url : userimage}/>
         </NavLink>
         {props.followed === true ? 

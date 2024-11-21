@@ -12,9 +12,8 @@ const Main = (props) => {
       <main className={s.main}>
         <div className={s.container}>
           <div className={s.content}>
-          <СardContainer />
             <Routes>
-              <Route path="/Profile/*" element={<ProfileContainer store = {props.store}/> }/>
+              <Route path="/Profile/:userId?" element={<ProfileContainer store = {props.store}/> }/>
               <Route path="/Messages" element={<MessagesContainer store = {props.store} />} />
               <Route path="/News" element={<News />} />
               <Route path="/Music" element={<Music />} />

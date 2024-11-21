@@ -1,7 +1,8 @@
 import s from "./Users.module.css"
 import User from "./User/User"
 import React from "react"
-
+import { Route, Routes } from "react-router-dom"
+import СardContainer from "../Card/СardContainer"
 let Users = (props) => {
 
   let UserItem = props.users
@@ -16,19 +17,24 @@ let Users = (props) => {
   }
 
   return(
-    <div className={s.container}>
-      <div className={s.pages}>
-        {pages.map( data => {
-          return (
-            <span className={props.currentPage === data ? 
-              s.selectedPage : s.page} onClick={(e) => { props.onPageChanged(data)}}>
-                {data}
-            </span>
-          )
-        })}
+    <>
+      <Routes>
+          <Route path="*/:userId?" element={<СardContainer />} />
+      </Routes>
+      <div className={s.container}>
+        <div className={s.pages}>
+          {pages.map( data => {
+            return (
+              <span className={props.currentPage === data ? 
+                s.selectedPage : s.page} onClick={(e) => { props.onPageChanged(data)}}>
+                  {data}
+              </span>
+            )
+          })}
+        </div>
+        {UserItem}
       </div>
-      {UserItem}
-    </div>
+    </>
   )
 }
 
