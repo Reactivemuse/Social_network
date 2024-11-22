@@ -1,14 +1,14 @@
 import { BrowserRouter } from 'react-router-dom';
 import React from "react";
-import Header from "./Header/Header";
 import Main from "./Main/Main";
+import HeaderContainer from './Header/HeaderContainer';
 
 function App(props) {
   
   return (
     <BrowserRouter>
       <React.Fragment>
-        <Header />
+        <HeaderContainer />
         <Main store = {props.store}/>
       </React.Fragment>
     </BrowserRouter>

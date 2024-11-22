@@ -1,9 +1,10 @@
+import { NavLink } from "react-router-dom";
 import s from "./Header.module.css"
 import Icon from "./Icon/Icon";
 import Logo from "./Logo/Logo"
 import Search from "./Search/Search";
 
-const Header = () => {
+const Header = (props) => {
 
   return (
     <header className={s.header}>
@@ -18,6 +19,10 @@ const Header = () => {
             <Icon link="/News" text="News" />
             <Icon link="/Music" text="Music" />
             <Icon link="/Settings" text = "Settings"/>
+          </div>
+          <div className={s.login}>
+            {console.log(props.login)}
+            {props.isauthorised ? props.login: <NavLink to = "/Login">Login</NavLink>}
           </div>
         </div>
       </div>
