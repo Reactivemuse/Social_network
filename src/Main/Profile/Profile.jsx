@@ -10,7 +10,7 @@ const Profile = (props) =>{
   return (
     <>
       <Routes>
-        <Route path="/:userId?" element={<СardContainer />} />
+        <Route path="/" element={<СardContainer />} />
       </Routes>
       <div className={s.profile}>
         <PostPublic store={props.store} />

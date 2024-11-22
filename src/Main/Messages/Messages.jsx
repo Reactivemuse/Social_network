@@ -19,7 +19,7 @@ const Messages = (props) => {
   return (
     <>
       <Routes>
-        <Route path="/:userId?" element={<СardContainer />} />
+        <Route path="/" element={<СardContainer />} />
       </Routes>
       <div className={s.message_container}>
         <div className={s.items}>

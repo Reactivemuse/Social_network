@@ -19,7 +19,7 @@ let Users = (props) => {
   return(
     <>
       <Routes>
-          <Route path="*/:userId?" element={<СardContainer />} />
+          <Route path="/" element={<СardContainer />} />
       </Routes>
       <div className={s.container}>
         <div className={s.pages}>

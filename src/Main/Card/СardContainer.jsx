@@ -17,6 +17,9 @@ export function withRouter(Children) {
 class CardContainer extends React.Component {
   componentDidMount() {
     let userId = this.props.match.params.userId;
+    if (!userId){
+      userId = 31897    
+    }
     axios.get("https://social-network.samuraijs.com/api/1.0/profile/" + userId ).then(
       responce => {
         this.props.setUserProfile(responce.data)
