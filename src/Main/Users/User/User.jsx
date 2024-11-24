@@ -1,6 +1,7 @@
 import s from "./User.module.css"
 import userimage from "../../../assets/images/user.png"
 import { NavLink } from "react-router-dom"
+import axios from "axios"
 const User = (props) => {
 
   let unfollowChange = () => {
@@ -17,8 +18,37 @@ const User = (props) => {
           <img className={s.photo} src={props.url != null ? props.url : userimage}/>
         </NavLink>
         {props.followed === true ? 
-        <button onClick={unfollowChange} className={s.button}>unfollow</button> : 
-        <button onClick={followChange} className={s.button}>follow</button>}
+        <button onClick={ () => {
+          axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${props.id}`, {}, {
+            withCredentials: true,
+            headers: {
+              "API-KEY": "7f2efdc0-fd2c-4e71-aa63-a78d164bc576"
+            }
+          }).then(
+            responce => {
+              if (responce.data.resultCode === 0){
+                props.addFollow(props.id)
+              }
+            }
+          )
+      }
+
+        } className={s.button}>unfollow</button> : 
+        <button onClick={ () => {
+          axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${props.id}`, {
+            withCredentials: true,
+            headers: {
+              "API-KEY": "7f2efdc0-fd2c-4e71-aa63-a78d164bc576"
+            }
+          }).then(
+            responce => {
+              if (responce.data.resultCode === 0) {
+                props.addUnfollow(props.id)
+              }
+            }
+          )
+        }
+        } className={s.button}>follow</button>}
       </div>
       <div className={s.description}>
         <div className={s.description_about}>
