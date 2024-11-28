@@ -3,27 +3,22 @@ import { addFollow, addUnfollow, setUsers, setCurrentPage, setTotalUsersCounts }
 import React from "react"
 import { connect } from "react-redux"
 import Users from "./Users"
-import axios from "axios"
-
+import { getUsers } from "../../API/api"
 class UsersContainer extends React.Component {
   componentDidMount() {
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {
-      withCredentials: true
-    }).then(
+    getUsers(this.props.currentPage, this.props.pageSize).then(
       responce => {
-        this.props.setUsers(responce.data.items)
-        this.props.setTotalUsersCounts(responce.data.totalCount)
+        this.props.setUsers(responce.items)
+        this.props.setTotalUsersCounts(responce.totalCount)
       }
     )
   }
 
   onPageChanged = (pageNumber) => {
     this.props.setCurrentPage(pageNumber)
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`, {
-      withCredentials: true
-    }).then(
+    getUsers(pageNumber, this.props.pageSize).then(
       responce => {
-        this.props.setUsers(responce.data.items)
+        this.props.setUsers(responce.items)
       }
     )
 

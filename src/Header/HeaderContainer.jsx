@@ -1,23 +1,19 @@
-
-
 import { setUserData } from "../redux/auth-reducer"
 import React from "react"
-import axios from "axios"
 import Header from "./Header"
 import { connect } from "react-redux"
-
+import { AuthMe } from "../API/api"
 class HeaderContainer extends React.Component {
   componentDidMount() {
     
-    axios.get("https://social-network.samuraijs.com/api/1.0/auth/me", {withCredentials: true} ).then(
+    AuthMe().then(
       responce => {
-        if (responce.data.resultCode === 0){
-          this.props.setUserData(responce.data.data.id, responce.data.data.email, responce.data.data.login)
+        if (responce.resultCode === 0){
+          this.props.setUserData(responce.data.id, responce.data.email, responce.data.login)
         }
       }
     )
   }
-
 
   render() {
     return (

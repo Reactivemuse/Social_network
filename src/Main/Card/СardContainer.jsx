@@ -3,9 +3,9 @@ import { setUserProfile } from "../../redux/sidebar-reducer"
 import React from "react"
 import { connect } from "react-redux"
 import Card from "./Card"
-import axios from "axios"
 
 import { useParams } from "react-router-dom";
+import { getProfile } from "../../API/api"
 
 export function withRouter(Children) {
   return (props) => {
@@ -20,13 +20,12 @@ class CardContainer extends React.Component {
     if (!userId){
       userId = 31897    
     }
-    axios.get("https://social-network.samuraijs.com/api/1.0/profile/" + userId ).then(
+    getProfile(userId).then(
       responce => {
-        this.props.setUserProfile(responce.data)
+        this.props.setUserProfile(responce)
       }
     )
   }
-
 
   render() {
     return (
@@ -35,13 +34,11 @@ class CardContainer extends React.Component {
   }
 }
 
-
 const mapStateToProps = (state) => {
   return {
     profile: state.sidebarPage.profile
   }
 }
-
 
 const WhitsUrlContainerComponent = withRouter(CardContainer)
 export default connect(mapStateToProps, { setUserProfile })(withRouter(WhitsUrlContainerComponent))
