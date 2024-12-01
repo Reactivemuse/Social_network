@@ -33,3 +33,5 @@ export default authReducer
 
 
 export const setUserData = (id, email, login) => ({ type: SET_USER_DATA, id: id, email: email, login: login })
+
+

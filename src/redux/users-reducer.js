@@ -1,10 +1,9 @@
-
+import { getUsers, UnfollowUser } from "../API/api"
 const USER_FOLLOW = "USER-FOLLOW"
 const USER_UNFOLLOW = "USER-UNFOLLOW"
 const SET_USERS = "SET-USERS"
 const SET_CURRENT_PAGE = "SET-CURRENT-PAGE"
 const SET_TOTAL_COUNT = "SET-TOTAL-COUNT"
-
 let initial = {
   usersData: [ ],
   pageSize: 5,
@@ -71,3 +70,28 @@ export const addUnfollow = (id) => ({ type: USER_UNFOLLOW, id: id })
 export const setUsers = (users) => ({ type: SET_USERS, users })
 export const setCurrentPage = (page) => ({ type: SET_CURRENT_PAGE, page })
 export const setTotalUsersCounts = (totalCount) => ({ type: SET_TOTAL_COUNT, totalCount })
+
+
+export const getUsersThunk = (currentPage, pageSize) => {
+  return (dispatch) => {
+    dispatch(setCurrentPage(currentPage))
+    getUsers(currentPage, pageSize).then(
+      responce => {
+        dispatch(setUsers(responce.items))
+        dispatch(setTotalUsersCounts(responce.totalCount))
+      }
+    )
+  }
+}
+
+export const UnfollowUserThunk = (id) => {
+  return (dispatch) => {
+    UnfollowUser(id).then(
+      responce => {
+        if (responce.resultCode == 0) {
+          dispatch(addUnfollow(id))
+        }
+      }
+    )
+  }
+}

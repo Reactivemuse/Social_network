@@ -1,7 +1,8 @@
 import s from "./User.module.css"
 import userimage from "../../../assets/images/user.png"
 import { NavLink } from "react-router-dom"
-import { UnfollowUser, followUser } from "../../../API/api"
+import { followUser } from "../../../API/api"
+import { UnfollowUserThunk } from "../../../redux/users-reducer"
 const User = (props) => {
 
   let unfollowChange = () => {
@@ -19,13 +20,7 @@ const User = (props) => {
         </NavLink>
         {props.followed === true ? 
         <button onClick={ () => {
-          UnfollowUser(props.id).then(
-            responce => {
-              if (responce.resultCode == 0){
-                props.addUnfollow(props.id)
-              }
-            }
-          )
+          props.UnfollowUserThunk(props.id)
       }
 
         } className={s.button}>unfollow</button> : 
