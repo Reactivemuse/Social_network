@@ -1,4 +1,4 @@
-import { addFollow, addUnfollow, getUsersThunk, UnfollowUserThunk } from "../../redux/users-reducer"
+import { addFollow, getUsersThunk, UnfollowUserThunk, followUserThunk } from "../../redux/users-reducer"
 import React from "react"
 import { connect } from "react-redux"
 import Users from "./Users"
@@ -20,8 +20,8 @@ class UsersContainer extends React.Component {
       pageSize={this.props.pageSize}
       currentPage={this.props.currentPage}
       onPageChanged={this.onPageChanged}
-      addFollow={this.props.addFollow}
-      addUnfollow={this.props.addUnfollow}
+      UnfollowUserThunk={this.props.UnfollowUserThunk}
+      followUserThunk = {this.props.followUserThunk}
       />
     )
   }
@@ -36,4 +36,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { addFollow, addUnfollow, getUsersThunk, UnfollowUserThunk })(UsersContainer)
+export default connect(mapStateToProps, { getUsersThunk, UnfollowUserThunk, followUserThunk })(UsersContainer)

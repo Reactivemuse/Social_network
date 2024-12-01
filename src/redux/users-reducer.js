@@ -1,4 +1,4 @@
-import { getUsers, UnfollowUser } from "../API/api"
+import { getUsers, UnfollowUser, followUser } from "../API/api"
 const USER_FOLLOW = "USER-FOLLOW"
 const USER_UNFOLLOW = "USER-UNFOLLOW"
 const SET_USERS = "SET-USERS"
@@ -95,3 +95,16 @@ export const UnfollowUserThunk = (id) => {
     )
   }
 }
+
+export const followUserThunk = (id) => {
+  return (dispatch) => {
+    followUser(id).then(
+      responce => {
+        if (responce.resultCode == 0) {
+          dispatch(addFollow(id))
+        }
+      }
+    )
+  }
+} 
+

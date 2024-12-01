@@ -1,39 +1,21 @@
 import s from "./User.module.css"
 import userimage from "../../../assets/images/user.png"
 import { NavLink } from "react-router-dom"
-import { followUser } from "../../../API/api"
-import { UnfollowUserThunk } from "../../../redux/users-reducer"
 const User = (props) => {
 
-  let unfollowChange = () => {
-    props.addUnfollow(props.id)
-  }
-  let followChange = () => {
-    props.addFollow(props.id)
-  }
-  
   return (
     <div className={s.user}>
       <div className={s.user_state}>
         <NavLink to={`/Profile/${props.id}`}>
           <img className={s.photo} src={props.url != null ? props.url : userimage}/>
         </NavLink>
-        {props.followed === true ? 
-        <button onClick={ () => {
-          props.UnfollowUserThunk(props.id)
-      }
 
-        } className={s.button}>unfollow</button> : 
-        <button onClick={ () => {
-          followUser(props.id).then(
-            responce => {
-              if (responce.resultCode == 0) {
-                props.addFollow(props.id)
-              }
-            }
-          )
-        }
-        } className={s.button}>follow</button>}
+        {props.followed === true ? 
+        <button onClick={ () => { props.UnfollowUserThunk(props.id) } } 
+        className={s.button}>unfollow</button> : 
+        <button onClick={ () => { props.followUserThunk(props.id) } } 
+        className={s.button}>follow</button>}
+        
       </div>
       <div className={s.description}>
         <div className={s.description_about}>
