@@ -4,7 +4,7 @@ import s from "./Card.module.css"
 const Card = (props) => {
   if (!props.profile){
     return (
-      <div>Error</div>
+      <div>...</div>
     )
   }
 
