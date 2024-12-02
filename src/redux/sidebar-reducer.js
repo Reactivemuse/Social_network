@@ -35,7 +35,10 @@ export const getProfileThunk = (userId) => {
       }
     )
   }
-} 
+}
+
+
+
 
 
 

@@ -1,18 +1,10 @@
-import { setUserData } from "../redux/auth-reducer"
+import { AuthMeThunk } from "../redux/auth-reducer"
 import React from "react"
 import Header from "./Header"
 import { connect } from "react-redux"
-import { AuthMe } from "../API/api"
 class HeaderContainer extends React.Component {
   componentDidMount() {
-    
-    AuthMe().then(
-      responce => {
-        if (responce.resultCode === 0){
-          this.props.setUserData(responce.data.id, responce.data.email, responce.data.login)
-        }
-      }
-    )
+    this.props.AuthMeThunk();
   }
 
   render() {
@@ -22,7 +14,6 @@ class HeaderContainer extends React.Component {
   }
 }
 
-
 const mapStateToProps = (state) => {
   return {
     isauthorised: state.auth.isauthorised,
@@ -30,5 +21,5 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { setUserData })(HeaderContainer)
+export default connect(mapStateToProps, { AuthMeThunk })(HeaderContainer)
 
