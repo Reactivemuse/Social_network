@@ -2,7 +2,7 @@ import s from "./Messages.module.css"
 import People from "./People/People"
 import TextMessages from "./TextMessages/TextMessages"
 import React from "react"
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, Navigate } from "react-router-dom"
 import СardContainer from "../Card/СardContainer"
 const Messages = (props) => {
   let newMessageElement = React.createRef()
@@ -14,6 +14,10 @@ const Messages = (props) => {
   let changeMessage = () => {
     let newMessage = newMessageElement.current.value;
     props.changeMessage(newMessage)
+  }
+
+  if (!props.isAuth){
+    return <Navigate to= "/Login"></Navigate>
   }
 
   return (
