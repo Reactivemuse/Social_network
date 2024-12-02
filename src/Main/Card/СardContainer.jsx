@@ -13,7 +13,7 @@ export function withRouter(Children) {
 
 class CardContainer extends React.Component {
   componentDidMount() {
-    getProfileThunk(this.props.match.params.userId)
+    this.props.getProfileThunk(this.props.match.params.userId)
   }
 
   render() {
